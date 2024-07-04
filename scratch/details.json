@@ -1,0 +1,42 @@
+{
+  "sku":"4",
+  "barcode":"12345678901234567890",
+  "variant_id":39941496438850,
+  "line_item_id":14039953866818,
+  "product_id":6800668524610,
+  "order_id":5596189786178,
+  "order_number":516620,
+  "order_tags":"happyExchange",
+  "zero_value_item":true,
+  "order_note":"2024-06-16 23:00 UTC\nCreated from Another™ test shirt - katlyn - very® long title to make sure it will be wrapped (512418)",
+  "order_name":"516620",
+  "weight":1,
+  "weightUnit":"lb",
+  "properties":{
+    "original_line_item_id":14019555983426,
+    "refund_transactions":"[{\"order_id\":5570039087170,\"amount\":\"13.23\",\"maximum_refundable\":\"132.30\",\"currency\":\"USD\",\"gateway\":\"manual\",\"kind\":\"suggested_refund\",\"parent_id\":6994659606594}]"
+  },
+  "presentment_currency":"USD",
+  "fulfillment_location_id":0,
+  "financial_status":"paid",
+  "inventory_item_id":42038059073602,
+  "exchange_orders":{
+    "order_number":516620,
+    "exchange_orders_hist":[
+      {
+        "order_number":516620,
+        "parent_order_number":512418
+      },
+      {
+        "order_number":512418,
+        "parent_order_number":512080
+      },
+      {
+        "order_number":512080,
+        "parent_order_number":493027
+      }
+    ],
+    "exchange_number":3,
+    "exchange_limit_reached":true
+  }
+}

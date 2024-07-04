@@ -1,0 +1,189 @@
+[
+  {
+    "id":5596189786178,
+    "order_number":516620,
+    "name":"516620",
+    "created_at":"2024-06-16T19:00:19-04:00",
+    "customer":{
+      "id":6559482806338,
+      "email":"ekopec.happyreturns@gmail.com",
+      "first_name":"Everton",
+      "last_name":"Kopec",
+      "default_address":{
+        "address1":"90401",
+        "city":"Santa Monica",
+        "company":"paypal",
+        "country":"United States",
+        "first_name":"Everton",
+        "last_name":"Kopec",
+        "province":"California",
+        "zip":"90401",
+        "name":"Everton Kopec",
+        "country_code":"US",
+        "province_code":"CA"
+      },
+      "addresses":null,
+      "tags":"",
+      "verified_email":true
+    },
+    "email":"ekopec.happyreturns@gmail.com",
+    "line_items":[
+      {
+        "id":14039953866818,
+        "name":"Another™ test shirt - katlyn - very® long title to make sure it will be wrapped - Blue - very long color description - Blue is the color of light between violet and cyan on the visible spectrum. / Medium - very long size description - 1 character barcode",
+        "price":"12.00",
+        "product_id":6800668524610,
+        "quantity":1,
+        "title":"Another™ test shirt - katlyn - very® long title to make sure it will be wrapped",
+        "total_discount":"0.00",
+        "variant_id":39941496438850,
+        "variant_title":"Blue - very long color description - Blue is the color of light between violet and cyan on the visible spectrum. / Medium - very long size description - 1 character barcode",
+        "vendor":"Alo Yoga",
+        "sku":"4",
+        "pre_tax_price":"0.00",
+        "properties":[
+          {
+            "name":"refund_transactions",
+            "value":"[{\"order_id\":5570039087170,\"amount\":\"13.23\",\"maximum_refundable\":\"132.30\",\"currency\":\"USD\",\"gateway\":\"manual\",\"kind\":\"suggested_refund\",\"parent_id\":6994659606594}]"
+          },
+          {
+            "name":"original_line_item_id",
+            "value":14019555983426
+          }
+        ],
+        "price_set":{
+          "presentment_money":{
+            "amount":"12.00",
+            "currency_code":"USD"
+          },
+          "shop_money":{
+            "amount":"12.00",
+            "currency_code":"USD"
+          }
+        },
+        "discount_allocations":[
+          {
+            "amount":"12.00",
+            "discount_application_index":0
+          }
+        ]
+      }
+    ],
+    "fulfillments":[
+      {
+        "id":5107297681474,
+        "order_id":5596189786178,
+        "created_at":"2024-06-16T19:03:16-04:00",
+        "updated_at":"2024-06-16T19:03:16-04:00",
+        "line_items":[
+          {
+            "id":14039953866818,
+            "name":"Another™ test shirt - katlyn - very® long title to make sure it will be wrapped - Blue - very long color description - Blue is the color of light between violet and cyan on the visible spectrum. / Medium - very long size description - 1 character barcode",
+            "price":"12.00",
+            "product_id":6800668524610,
+            "quantity":1,
+            "title":"Another™ test shirt - katlyn - very® long title to make sure it will be wrapped",
+            "total_discount":"0.00",
+            "variant_id":39941496438850,
+            "variant_title":"Blue - very long color description - Blue is the color of light between violet and cyan on the visible spectrum. / Medium - very long size description - 1 character barcode",
+            "vendor":"Alo Yoga",
+            "sku":"4",
+            "pre_tax_price":"0.00",
+            "properties":[
+              {
+                "name":"refund_transactions",
+                "value":"[{\"order_id\":5570039087170,\"amount\":\"13.23\",\"maximum_refundable\":\"132.30\",\"currency\":\"USD\",\"gateway\":\"manual\",\"kind\":\"suggested_refund\",\"parent_id\":6994659606594}]"
+              },
+              {
+                "name":"original_line_item_id",
+                "value":14019555983426
+              }
+            ],
+            "price_set":{
+              "presentment_money":{
+                "amount":"12.00",
+                "currency_code":"USD"
+              },
+              "shop_money":{
+                "amount":"12.00",
+                "currency_code":"USD"
+              }
+            },
+            "discount_allocations":[
+              {
+                "amount":"12.00",
+                "discount_application_index":0
+              }
+            ]
+          }
+        ],
+        "status":"success",
+        "location_id":61394255938
+      }
+    ],
+    "fulfillment_status":"fulfilled",
+    "discount_applications":[
+      {
+        "type":"manual",
+        "title":"EXCHANGE",
+        "description":"EXCHANGE",
+        "value":100,
+        "value_type":"percentage",
+        "allocation_method":"across",
+        "target_selection":"all",
+        "target_type":"line_item"
+      }
+    ],
+    "discount_codes":[
+      {
+        "code":"EXCHANGE",
+        "amount":"12.00",
+        "type":"percentage"
+      }
+    ],
+    "note":"2024-06-16 23:00 UTC-Created from Another™ test shirt - katlyn - very® long title to make sure it will be wrapped (512418)",
+    "tags":"happyExchange",
+    "source_name":"exchange",
+    "billing_address":{
+      "address1":"90401",
+      "city":"Santa Monica",
+      "company":"paypal",
+      "country":"United States",
+      "first_name":"Everton",
+      "last_name":"Kopec",
+      "province":"California",
+      "zip":"90401",
+      "name":"Everton Kopec",
+      "country_code":"US",
+      "province_code":"CA"
+    },
+    "shipping_address":{
+      "address1":"90401",
+      "city":"Santa Monica",
+      "company":"paypal",
+      "country":"United States",
+      "first_name":"Everton",
+      "last_name":"Kopec",
+      "latitude":34.0126379,
+      "longitude":-118.495155,
+      "province":"California",
+      "zip":"90401",
+      "name":"Everton Kopec",
+      "country_code":"US",
+      "province_code":"CA"
+    },
+    "currency":"USD",
+    "total_price_set":{
+      "presentment_money":{
+        "amount":"0.00",
+        "currency_code":"USD"
+      },
+      "shop_money":{
+        "amount":"0.00",
+        "currency_code":"USD"
+      }
+    },
+    "presentment_currency":"USD",
+    "financial_status":"paid"
+  }
+]
