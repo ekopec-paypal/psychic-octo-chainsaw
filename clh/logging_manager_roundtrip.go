@@ -13,13 +13,14 @@ type LoggingRoundTripper struct {
 	AppName string
 }
 
-func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request, appName string) (*http.Response, error) {
+func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
 	var logger *log.Logger
+	fmt.Printf("RoundTrip %s %+v\n\n\n", lrt.AppName, req)
 	if lrt.LM.ShouldLog(lrt.AppName) {
 		fmt.Printf("Request: %s %s\n\n\n", req.Method, req.URL.String())
 		logger.Printf("%v", logrus.Fields{
 			"request":     req.Method,
-			"app_name":    appName,
+			"app_name":    lrt.AppName,
 			"request_url": req.URL.String(),
 			"request_uri": req.RequestURI,
 		})
@@ -33,7 +34,7 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request, appName string) (*h
 		logger.Printf("%v", logrus.Fields{
 			"Response":      resp.Status,
 			"status_code":   resp.StatusCode,
-			"app_name":      appName,
+			"app_name":      lrt.AppName,
 			"response_body": resp.Body,
 		})
 	}
