@@ -22,7 +22,6 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, er
 			"request":     req.Method,
 			"app_name":    lrt.AppName,
 			"request_url": req.URL.String(),
-			"request_uri": req.RequestURI,
 		})
 	}
 	resp, err := lrt.Proxied.RoundTrip(req)
