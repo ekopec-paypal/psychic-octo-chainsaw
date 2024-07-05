@@ -1,7 +1,7 @@
 package clh
 
 import (
-	"log"
+	"fmt"
 	"net/http"
 )
 
@@ -9,12 +9,12 @@ func LoggingMiddleware(lm *LoggingManager, appName string, next http.Handler) ht
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		if lm.ShouldLog(appName) {
 			// Log the request
-			log.Printf("Request: %s %s", r.Method, r.URL.Path)
+			fmt.Printf("Request: %s %s\n\n\n", r.Method, r.URL.Path)
 
 			// Log the response (this example assumes a simple logging, you can enhance it)
 			lrw := NewLoggingResponseWriter(w)
 			next.ServeHTTP(lrw, r)
-			log.Printf("Response: %d", lrw.statusCode)
+			fmt.Printf("Response: %d\n\n", lrw.statusCode)
 		} else {
 			next.ServeHTTP(w, r) // No-op: Just call the next handler
 		}
