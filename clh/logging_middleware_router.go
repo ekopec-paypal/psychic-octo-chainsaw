@@ -25,9 +25,10 @@ func LoggingMiddleware(lm *LoggingManager, appName string, next http.Handler) ht
 			next.ServeHTTP(lrw, r)
 			fmt.Printf("Response: %d\n\n", lrw.statusCode)
 			logger.Printf("%v", logrus.Fields{
-				"Response":      "Response",
-				"AppName":       appName,
-				"Response_Body": r.Response.Body,
+				"Response":      r.Response,
+				"status_code":   lrw.statusCode,
+				"app_name":      appName,
+				"response_body": r.Response.Body,
 			})
 		} else {
 			next.ServeHTTP(w, r) // No-op: Just call the next handler

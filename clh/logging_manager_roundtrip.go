@@ -18,10 +18,10 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request, appName string) (*h
 	if lrt.LM.ShouldLog(lrt.AppName) {
 		fmt.Printf("Request: %s %s\n\n\n", req.Method, req.URL.String())
 		logger.Printf("%v", logrus.Fields{
-			"Response":       "Request",
-			"AppName":        appName,
-			"request_method": req.Method,
-			"request_uri":    req.URL.String(),
+			"request":     req.Method,
+			"app_name":    appName,
+			"request_url": req.URL.String(),
+			"request_uri": req.RequestURI,
 		})
 	}
 	resp, err := lrt.Proxied.RoundTrip(req)
@@ -29,12 +29,12 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request, appName string) (*h
 		return nil, err
 	}
 	if lrt.LM.ShouldLog(lrt.AppName) {
-		log.Printf("Response: %d", resp.StatusCode)
 		fmt.Printf("Response: %d\n\n", resp.StatusCode)
 		logger.Printf("%v", logrus.Fields{
-			"Response":     "Response",
-			"AppName":      appName,
-			"ResponseBody": resp.Body,
+			"Response":      resp.Status,
+			"status_code":   resp.StatusCode,
+			"app_name":      appName,
+			"response_body": resp.Body,
 		})
 	}
 	return resp, nil
