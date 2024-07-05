@@ -1,6 +1,8 @@
 package clh
 
 import (
+	"fmt"
+	"github.com/sirupsen/logrus"
 	"log"
 	"net/http"
 )
@@ -11,9 +13,16 @@ type LoggingRoundTripper struct {
 	AppName string
 }
 
-func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, error) {
+func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request, appName string) (*http.Response, error) {
+	var logger *log.Logger
 	if lrt.LM.ShouldLog(lrt.AppName) {
-		log.Printf("Request: %s %s", req.Method, req.URL.String())
+		fmt.Printf("Request: %s %s\n\n\n", req.Method, req.URL.String())
+		logger.Printf("%v", logrus.Fields{
+			"Response":       "Request",
+			"AppName":        appName,
+			"request_method": req.Method,
+			"request_uri":    req.URL.String(),
+		})
 	}
 	resp, err := lrt.Proxied.RoundTrip(req)
 	if err != nil {
@@ -21,6 +30,12 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, er
 	}
 	if lrt.LM.ShouldLog(lrt.AppName) {
 		log.Printf("Response: %d", resp.StatusCode)
+		fmt.Printf("Response: %d\n\n", resp.StatusCode)
+		logger.Printf("%v", logrus.Fields{
+			"Response":     "Response",
+			"AppName":      appName,
+			"ResponseBody": resp.Body,
+		})
 	}
 	return resp, nil
 }

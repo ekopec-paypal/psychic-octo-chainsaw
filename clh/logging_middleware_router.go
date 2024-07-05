@@ -12,23 +12,22 @@ func LoggingMiddleware(lm *LoggingManager, appName string, next http.Handler) ht
 		if lm.ShouldLog(appName) {
 			// Log the request
 			var logger *log.Logger
+			fmt.Printf("Request: %s %s\n\n\n", r.Method, r.URL.Path)
 			logger.Printf("%v", logrus.Fields{
 				"Response":       "Request",
 				"AppName":        appName,
 				"request_method": r.Method,
 				"request_uri":    r.URL.Path,
 			})
-			fmt.Printf("Request: %s %s\n\n\n", r.Method, r.URL.Path)
 
 			// Log the response (this example assumes a simple logging, you can enhance it)
 			lrw := NewLoggingResponseWriter(w)
 			next.ServeHTTP(lrw, r)
 			fmt.Printf("Response: %d\n\n", lrw.statusCode)
 			logger.Printf("%v", logrus.Fields{
-				"Response":       "Response",
-				"AppName":        appName,
-				"request_method": r.Method,
-				"request_uri":    r.URL.Path,
+				"Response":      "Response",
+				"AppName":       appName,
+				"Response_Body": r.Response.Body,
 			})
 		} else {
 			next.ServeHTTP(w, r) // No-op: Just call the next handler
