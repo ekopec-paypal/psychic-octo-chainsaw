@@ -2,8 +2,8 @@ package clh
 
 import (
 	"fmt"
-	"github.com/happyreturns/gohelpers/log"
 	"github.com/sirupsen/logrus"
+	"log"
 	"net/http"
 )
 
@@ -12,7 +12,7 @@ func LoggingMiddleware(lm *LoggingManager, appName string, next http.Handler) ht
 		if lm.ShouldLog(appName) {
 			// Log the request
 			var logger *log.Logger
-			logger.WithFields(logrus.Fields{
+			logger.Printf("%v", logrus.Fields{
 				"Response":       "Request",
 				"AppName":        appName,
 				"request_method": r.Method,
@@ -24,7 +24,7 @@ func LoggingMiddleware(lm *LoggingManager, appName string, next http.Handler) ht
 			lrw := NewLoggingResponseWriter(w)
 			next.ServeHTTP(lrw, r)
 			fmt.Printf("Response: %d\n\n", lrw.statusCode)
-			logger.WithFields(logrus.Fields{
+			logger.Printf("%v", logrus.Fields{
 				"Response":       "Response",
 				"AppName":        appName,
 				"request_method": r.Method,
