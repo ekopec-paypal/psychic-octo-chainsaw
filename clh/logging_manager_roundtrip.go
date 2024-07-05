@@ -28,7 +28,7 @@ func (lrt *LoggingRoundTripper) RoundTrip(req *http.Request) (*http.Response, er
 	if err != nil {
 		return nil, err
 	}
-	if lrt.LM.ShouldLog(lrt.AppName) {
+	if lrt.LM.ShouldLog(lrt.AppName) && resp != nil {
 		fmt.Printf("Response: %d\n\n", resp.StatusCode)
 		logger.Printf("%v", logrus.Fields{
 			"Response":      resp.Status,
